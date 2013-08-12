@@ -60,7 +60,15 @@ tty.open = function() {
     baseURL = pathComponents.slice(0,pathComponents.length-1).join('/') + '/',
     resource = baseURL.substring(1) + "socket.io";
 
-  tty.socket = io.connect(null, { resource: resource });
+
+  if (!Terminal.ioHost && !Terminal.ioPort){
+    tty.socket = io.connect(null, { resource: resource });    
+  }
+  else {
+    tty.socket = io.connect("http://" + Terminal.ioHost + ":" + Terminal.ioPort, { resource: resource });
+  }
+
+
 
   tty.windows = [];
   tty.terms = {};
