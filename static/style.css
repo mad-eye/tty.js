@@ -3,33 +3,6 @@
  * Copyright (c) 2012-2013, Christopher Jeffrey (MIT License)
  */
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-div {
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  background: #fff;
-}
-
-html.dark {
-  background: #333;
-}
-
-html.maximized {
-  overflow: hidden;
-}
-
-body {
-  margin: 25px;
-}
-
 /* Only allow plaintext?
 [contenteditable=""],
 [contenteditable="true"] {
@@ -42,14 +15,9 @@ body {
  */
 
 .window {
-  padding-top: 15px;
-  border: #fafafa solid 1px;
+  border: 1px solid #AAA;
   background: #272829;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 20px;
+  /*box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 20px;*/
 }
 
 .maximized .window {
@@ -68,7 +36,6 @@ body {
   right: 0;
   height: 13px;
   padding: 1px 0;
-  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
   color: #fafafa;
 }
 
@@ -76,11 +43,11 @@ body {
 .maximized .bar {
 }
 
-.title {
+.window .title {
   position: absolute;
   right: 5px;
   top: 2px;
-  font-size: 11px;
+  font-size: 13px;
   cursor: default;
 }
 
@@ -112,8 +79,6 @@ body {
 
 .terminal {
   border: #000 solid 5px;
-  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
-  font-size: 11px;
   color: #f0f0f0;
   background: #000;
 }
@@ -123,61 +88,9 @@ body {
   background: #f0f0f0;
 }
 
-/**
- * Page
- */
-
-h1 {
-  font: 20px/1.5 sans-serif;
-  background: #333;
-  margin: -25px -25px 0 -25px;
-  height: 30px;
-  padding: 10px 25px;
-  color: white;
-  border-top: #e15729 solid 10px;
+.terminal div {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  line-height: initial;
 }
-
-#open, #lights {
-  font: 20px/1.5 sans-serif;
-  position: fixed;
-  right: 0;
-  padding: 10px;
-  height: 50px;
-  color: white;
-  cursor: pointer;
-  margin: 0;
-  background: none;
-  border: none;
-  -webkit-appearance: none;
-}
-
-#open {
-  top: 10px;
-  background: #333;
-}
-
-#lights {
-  font-size: 18px;
-  height: 46px;
-  top: 60px;
-  background: #555;
-}
-
-#open:hover, #lights:hover {
-  color: slategrey;
-  background: white;
-}
-
-#open:active, #lights:active {
-  color: orange;
-}
-
-#help {
-  font: 12px/1.5 sans-serif;
-  color: #999;
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-}
-
-.dark h1, .dark #help { display: none; }

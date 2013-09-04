@@ -65,7 +65,7 @@ tty.open = function() {
     tty.socket = io.connect(null, { resource: resource });    
   }
   else {
-    tty.socket = io.connect("http://" + Terminal.ioHost + ":" + Terminal.ioPort, { resource: resource });
+    tty.socket = io.connect("http://" + Terminal.ioHost + ":" + Terminal.ioPort);
   }
 
 
@@ -203,8 +203,9 @@ tty.toggleLights = function() {
  * Window
  */
 
-function Window(socket) {
+function Window(socket, options) {
   var self = this;
+  var options = options || {}
 
   EventEmitter.call(this);
 
@@ -250,6 +251,10 @@ function Window(socket) {
   bar.appendChild(button);
   bar.appendChild(title);
   body.appendChild(el);
+
+  if (options.parent) {
+    options.parent.appendChild(el)
+  }
 
   tty.windows.push(this);
 
@@ -621,7 +626,7 @@ Tab.prototype.handleTitle = function(title) {
   this.title = title;
 
   if (Terminal.focus === this) {
-    document.title = title;
+    // document.title = title;
     // if (h1) h1.innerHTML = title;
   }
 
@@ -932,7 +937,6 @@ function load() {
 
   off(document, 'load', load);
   off(document, 'DOMContentLoaded', load);
-  tty.open();
 }
 
 on(document, 'load', load);
