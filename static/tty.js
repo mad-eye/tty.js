@@ -956,3 +956,5 @@ this.tty = tty;
 }).call(function() {
   return this || (typeof window !== 'undefined' ? window : global);
 }());
+
+tty = window.tty
