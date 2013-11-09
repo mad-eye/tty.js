@@ -64,7 +64,7 @@ tty.open = function() {
     tty.socket = io.connect(null, { resource: resource });    
   }
   else {
-    tty.socket = io.connect(Terminal.ioUrl);
+    tty.socket = io.connect(Terminal.ioUrl, {resource: Terminal.ioResource});
   }
 
   tty.windows = [];
