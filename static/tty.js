@@ -170,6 +170,13 @@ tty.open = function() {
   tty.emit('open');
 };
 
+tty.disconnect = function(){
+  tty.socket.removeAllListeners();
+  tty.socket.disconnect();
+  delete tty.socket;
+  io.sockets = {};
+};
+
 /**
  * Reset
  */
