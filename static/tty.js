@@ -60,15 +60,12 @@ tty.open = function() {
     baseURL = pathComponents.slice(0,pathComponents.length-1).join('/') + '/',
     resource = baseURL.substring(1) + "socket.io";
 
-
-  if (!Terminal.ioHost && !Terminal.ioPort){
+  if (!Terminal.ioUrl){
     tty.socket = io.connect(null, { resource: resource });    
   }
   else {
-    tty.socket = io.connect("http://" + Terminal.ioHost + ":" + Terminal.ioPort);
+    tty.socket = io.connect(Terminal.ioUrl, {resource: Terminal.ioResource});
   }
-
-
 
   tty.windows = [];
   tty.terms = {};
@@ -171,6 +168,13 @@ tty.open = function() {
 
   tty.emit('load');
   tty.emit('open');
+};
+
+tty.disconnect = function(){
+  tty.socket.removeAllListeners();
+  tty.socket.disconnect();
+  delete tty.socket;
+  io.sockets = {};
 };
 
 /**
