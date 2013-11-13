@@ -171,9 +171,11 @@ tty.open = function() {
 };
 
 tty.disconnect = function(){
-  tty.socket.removeAllListeners();
-  tty.socket.disconnect();
-  delete tty.socket;
+  if (tty.socket) {
+    tty.socket.removeAllListeners();
+    tty.socket.disconnect();
+    delete tty.socket;
+  }
   io.sockets = {};
 };
 
