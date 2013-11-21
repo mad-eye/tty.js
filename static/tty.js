@@ -53,18 +53,18 @@ tty.elements;
  * Open
  */
 
-tty.open = function() {
+tty.open = function(ioUrl, ioResource) {
   var
     pathComponents = document.location.pathname.split('/'),
     // Strip last part (either index.html or "", presumably)
     baseURL = pathComponents.slice(0,pathComponents.length-1).join('/') + '/',
     resource = baseURL.substring(1) + "socket.io";
 
-  if (!Terminal.ioUrl){
+  if (!ioUrl){
     tty.socket = io.connect(null, { resource: resource });    
   }
   else {
-    tty.socket = io.connect(Terminal.ioUrl, {resource: Terminal.ioResource});
+    tty.socket = io.connect(ioUrl, {resource: ioResource});
   }
 
   tty.windows = [];
