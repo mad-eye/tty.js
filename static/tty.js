@@ -109,6 +109,7 @@ tty.open = function(ioUrl, ioResource) {
   tty.socket.on('kill', function(id) {
     if (!tty.terms[id]) return;
     tty.terms[id]._destroy();
+    tty.emit('kill');
   });
 
   // XXX Clean this up.
