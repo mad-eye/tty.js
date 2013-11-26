@@ -305,6 +305,8 @@ Window.prototype.bind = function() {
 
     self.focus();
 
+    /* HACK: Disabling since we control the window's position/etc.
+     * Might be needed someday.
     cancel(ev);
 
     if (new Date - last < 600) {
@@ -313,6 +315,7 @@ Window.prototype.bind = function() {
     last = new Date;
 
     self.drag(ev);
+    */
 
     return cancel(ev);
   });
