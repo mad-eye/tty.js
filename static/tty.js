@@ -185,9 +185,11 @@ tty.disconnect = function(){
  */
 
 tty.reset = function() {
-  var i = tty.windows.length;
-  while (i--) {
-    tty.windows[i].destroy();
+  if (tty.windows) {
+    var i = tty.windows.length;
+    while (i--) {
+      tty.windows[i].destroy();
+    }
   }
 
   tty.windows = [];
