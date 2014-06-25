@@ -330,15 +330,15 @@ Terminal.bindKeys = function() {
 
   // We could put an "if (Terminal.focus)" check
   // here, but it shouldn't be necessary.
-  on(document, 'keydown', function(ev) {
-    if (!Terminal.focus) return;
-    return Terminal.focus.keyDown(ev);
-  }, true);
+  // on(document, 'keydown', function(ev) {
+  //   if (!Terminal.focus) return;
+  //   return Terminal.focus.keyDown(ev);
+  // }, true);
 
-  on(document, 'keypress', function(ev) {
-    if (!Terminal.focus) return;
-    return Terminal.focus.keyPress(ev);
-  }, true);
+  // on(document, 'keypress', function(ev) {
+  //   if (!Terminal.focus) return;
+  //   return Terminal.focus.keyPress(ev);
+  // }, true);
 };
 
 /**
