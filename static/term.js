@@ -294,7 +294,7 @@ Terminal.colors[257] = Terminal.defaultColors.fg;
 
 Terminal.termName = 'xterm';
 Terminal.geometry = [80, 24];
-Terminal.cursorBlink = true;
+Terminal.cursorBlink = false;
 Terminal.visualBell = false;
 Terminal.popOnBell = false;
 Terminal.scrollback = 1000;
