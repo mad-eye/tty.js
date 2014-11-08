@@ -675,7 +675,7 @@ Tab.prototype.focus = function() {
     win.focused = this;
 
     win.title.innerHTML = this.process;
-    document.title = this.title || initialTitle;
+    // document.title = this.title || initialTitle;
     this.button.style.fontWeight = 'bold';
     this.button.style.color = '';
   }
